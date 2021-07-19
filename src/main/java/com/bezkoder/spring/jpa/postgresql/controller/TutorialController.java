@@ -28,6 +28,11 @@ public class TutorialController {
 
 	@Autowired
 	TutorialRepository tutorialRepository;
+	
+	@GetMapping("/health")
+	public ResponseEntity<String> health() {
+		return new ResponseEntity<>("OK", HttpStatus.OK);
+	}
 
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
