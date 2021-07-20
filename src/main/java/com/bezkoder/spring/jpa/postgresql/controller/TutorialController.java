@@ -43,7 +43,7 @@ public class TutorialController {
 				byte b[] = new byte[oneMbyte];
 				l.add(b);
 			}
-			Thread.sleep(5000);
+			//Thread.sleep(5000);
 			
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
