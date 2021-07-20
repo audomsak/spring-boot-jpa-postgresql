@@ -40,6 +40,7 @@ public class TutorialController {
 		try {
 			int oneMbyte = 1048576;
 			while (Runtime.getRuntime().freeMemory() > oneMbyte) {
+				System.out.println("Free memory: " + Runtime.getRuntime().freeMemory());
 				byte b[] = new byte[oneMbyte];
 				l.add(b);
 			}
