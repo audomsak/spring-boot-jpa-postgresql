@@ -36,13 +36,12 @@ public class TutorialController {
 
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
+		List l = new ArrayList();
 		try {
-			int i = 0;
-			List l = new ArrayList();
-			while (i < 100) {
-				byte b[] = new byte[1048576];
+			int oneMbyte = 1048576;
+			while (Runtime.getRuntime().freeMemory() > oneMbyte) {
+				byte b[] = new byte[oneMbyte];
 				l.add(b);
-				i++;
 			}
 			Thread.sleep(5000);
 			
@@ -60,6 +59,9 @@ public class TutorialController {
 			return new ResponseEntity<>(tutorials, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		} finally {
+			l.clear();
+			Runtime.getRuntime().gc();
 		}
 	}
 
