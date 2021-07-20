@@ -1,6 +1,5 @@
 package com.bezkoder.spring.jpa.postgresql.controller;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -30,12 +29,6 @@ public class TutorialController {
 	@Autowired
 	TutorialRepository tutorialRepository;
 	
-	private BigInteger fib(BigInteger n) {
-		if (n.compareTo(BigInteger.ONE) == -1 || n.compareTo(BigInteger.ONE) == 0 ) return n;
-		else
-			return fib(n.subtract(BigInteger.ONE)).add(fib(n.subtract(BigInteger.ONE).subtract(BigInteger.ONE)));
-	}
-	
 	@GetMapping("/health")
 	public ResponseEntity<String> health() {
 		return new ResponseEntity<>("OK", HttpStatus.OK);
@@ -44,7 +37,15 @@ public class TutorialController {
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
 		try {
-			fib(new BigInteger("40"));
+			int i = 0;
+			List l = new ArrayList();
+			while (i < 100) {
+				byte b[] = new byte[1048576];
+				l.add(b);
+				i++;
+			}
+			Thread.sleep(5000);
+			
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
 			if (title == null)
