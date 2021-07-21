@@ -40,6 +40,7 @@ public class TutorialController {
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
 		LOGGER.info("getAllTutorials");
+		List<Tutorial> temp = new ArrayList<Tutorial>();
 		
 		try {
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
@@ -51,6 +52,12 @@ public class TutorialController {
 
 			LOGGER.info("Total tutorial: {}", tutorials.size());
 			
+			// Simulate memory intensive code
+			
+			for (int i = 0; i < 100000; i++) {
+				temp.addAll(tutorials);
+			}
+			
 			if (tutorials.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -59,6 +66,7 @@ public class TutorialController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		} finally {
+			temp.clear();
 			Runtime.getRuntime().gc();
 		}
 	}
