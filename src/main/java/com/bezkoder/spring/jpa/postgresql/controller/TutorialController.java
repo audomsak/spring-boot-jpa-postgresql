@@ -53,7 +53,6 @@ public class TutorialController {
 			LOGGER.info("Total tutorial: {}", tutorials.size());
 			
 			// Simulate memory intensive code
-			
 			for (int i = 0; i < 100000; i++) {
 				temp.addAll(tutorials);
 			}
