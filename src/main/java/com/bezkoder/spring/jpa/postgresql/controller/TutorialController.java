@@ -51,7 +51,7 @@ public class TutorialController {
 		
 		try {
 			LOGGER.info("Processing request...");
-			fib(new BigInteger("35"));
+			fib(new BigInteger("30"));
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
 			if (title == null)
