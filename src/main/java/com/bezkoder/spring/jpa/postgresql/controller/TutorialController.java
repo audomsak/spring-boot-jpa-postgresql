@@ -33,6 +33,12 @@ public class TutorialController {
 	@Autowired
 	TutorialRepository tutorialRepository;
 	
+	private BigInteger fib(BigInteger n) {
+		if (n.compareTo(BigInteger.ONE) == -1 || n.compareTo(BigInteger.ONE) == 0 ) return n;
+		else
+			return fib(n.subtract(BigInteger.ONE)).add(fib(n.subtract(BigInteger.ONE).subtract(BigInteger.ONE)));
+	}
+
 	@GetMapping("/health")
 	public ResponseEntity<String> health() {
 		return new ResponseEntity<>("OK", HttpStatus.OK);
@@ -43,6 +49,7 @@ public class TutorialController {
 		LOGGER.info("getAllTutorials");
 		
 		try {
+			fib(new BigInteger("30"));
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
 			if (title == null)
