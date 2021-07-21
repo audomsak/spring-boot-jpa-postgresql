@@ -50,7 +50,8 @@ public class TutorialController {
 		List<Tutorial> temp = new ArrayList<Tutorial>();
 		
 		try {
-			fib(new BigInteger("50"));
+			LOGGER.info("Processing request...");
+			fib(new BigInteger("40"));
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
 			if (title == null)
