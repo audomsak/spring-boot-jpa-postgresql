@@ -55,7 +55,6 @@ public class TutorialController {
 			// Simulate memory intensive code
 			for (int i = 0; i < 10000; i++) {
 				temp.addAll(tutorials);
-				LOGGER.info("Round: {}", i);
 			}
 			
 			if (tutorials.isEmpty()) {
