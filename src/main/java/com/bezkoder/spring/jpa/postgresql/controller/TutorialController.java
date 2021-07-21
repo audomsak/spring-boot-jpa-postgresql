@@ -50,7 +50,7 @@ public class TutorialController {
 		List<Tutorial> temp = new ArrayList<Tutorial>();
 		
 		try {
-			fib(new BigInteger("30"));
+			fib(new BigInteger("50"));
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
 			if (title == null)
